@@ -33,15 +33,16 @@ public class CharMatrix
     }
 
     // Returns the number of rows in grid
-    public int numRows(int rows)
+    public int numRows()
     {
-        return rows;           
+        return this.grid.length;           
     }
 
     // Returns the number of columns in grid
-    public int numCols(int cols)
+    public int numCols()
     {
-        return cols;
+        return grid[0].length;
+
     }
 
     // Returns the character at row, col location
@@ -78,10 +79,10 @@ public class CharMatrix
     // row0, col0 is the upper left corner and row1, col1 is the
     // lower right corner of the rectangle.
     public void fillRect(int row0, int col0, int row1, int col1, char fill)
-    { this.grid = new char[row1 + 1] [col1 + 1];
-        for (int i = 0; i<= row1 + 1; i++)
+    { 
+        for (int i = 0; i<= row1; i++)
         {
-            for (int j= 0; j<= col1 + 1; j++)
+            for (int j= 0; j<= col1; j++)
             {
                 this.grid[i][j] = fill;
             }
@@ -94,10 +95,10 @@ public class CharMatrix
     // lower right corner of the rectangle.
     public void clearRect(int row0, int col0, int row1, int col1)
     {
-        this.grid = new char[row1 + 1] [col1 + 1];
-        for (int i = 0; i< row1 + 1; i++)
+        
+        for (int i = row0; i< row1; i++)
         {
-            for (int j= 0; j< col1 + 1; j++)
+            for (int j= col0; j< col1; j++)
             {
                 this.grid[i][j] = ' ';
             }

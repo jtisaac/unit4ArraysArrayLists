@@ -19,7 +19,7 @@ public class RadarViewer
         final int COLS = 100;
         Radar radar = new Radar(ROWS, COLS);
         radar.setNoiseFraction(0.10);
-        radar.scan(ROWS,COLS); // edit @jisaac
+        radar.scan(); // edit @jisaac
         
         JFrame frame = new JFrame();
         
@@ -43,7 +43,7 @@ public class RadarViewer
         {
             Thread.sleep(100); // sleep 100 milliseconds (1/10 second)
             
-            radar.scan(ROWS,COLS); //edit @jisaac
+            radar.scan(); //edit @jisaac
             
             frame.repaint();
         }

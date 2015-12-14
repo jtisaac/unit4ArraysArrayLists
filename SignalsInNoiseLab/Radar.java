@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.lang.Math;
 /**
  * The model for radar scan and accumulator
  * 
@@ -55,7 +56,7 @@ public class Radar
      * @ param rows was previously described
      * @ param cols was previously described
      */
-    public void scan(int rows, int cols)
+    public void scan()
     {
         // algorithm for performing a scan:
         //    1. set all cells in the currentScan 2D array to false
@@ -64,9 +65,10 @@ public class Radar
         //    4. update the accumulator 2D array based on the state of the currentScan 2D array
         //    5. increment the numScans instance variable
         //1
-        for ( int x = 0; x < rows -1; x++)
+        
+        for ( int x = 0; x < currentScan.length; x++)
         {
-            for (int y = 0; y < cols -1; y++)
+            for (int y = 0; y < currentScan[x].length; y++)
             {
                 currentScan[x][y] = false;
             }
@@ -74,15 +76,15 @@ public class Radar
         //2
         currentScan[monsterLocationRow][monsterLocationCol] = true;
         //3
-        this.injectNoise(rows , cols);
+        this.injectNoise(currentScan.length , currentScan[0].length);
         
         //4
-        for ( int x = 0; x < rows -1; x++)
+        for ( int x = 0; x < currentScan.length; x++)
         {
-            for (int y = 0; y < cols -1; y++)
+            for (int y = 0; y < currentScan[0].length; y++)
             {
                 
-                if (currentScan[x][y] = true)
+                if (currentScan[x][y] == true)
                 {
                     accumulator[x][y] += 1;
                 }
@@ -195,20 +197,17 @@ public class Radar
         // The noiseFraction instance variable is the probability that a given cell will be
         // detected as a false positive. Use the Math.random method to determine if each cell should be set
         // as a false positive.
-        Random thizshallbeafalsealarm = new Random();
-        for ( int x = 0; x < rows -1; x++)
+        //Random thizshallbeafalsealarm = new Random();
+        for ( int x = 0; x < rows ; x++)
         {
-            for (int y = 0; y < cols -1; y++)
+            for (int y = 0; y < cols ; y++)
             {
-                int diz = thizshallbeafalsealarm.nextInt(19);
-                if (diz == 0)
+                ///int diz = thizshallbeafalsealarm.nextInt(19);
+                if (Math.random() <= noiseFraction)
                 {
                     currentScan[x][y] = true;
                 }
-                else
-                {
-                    currentScan[x][y] = false;
-                }
+               
                 // !!! add code here !!!
                 //
             }

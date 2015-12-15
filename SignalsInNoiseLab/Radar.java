@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.lang.Math;
 /**
  * The model for radar scan and accumulator
@@ -76,7 +75,7 @@ public class Radar
         //2
         currentScan[monsterLocationRow][monsterLocationCol] = true;
         //3
-        this.injectNoise(currentScan.length , currentScan[0].length);
+        this.injectNoise();
         
         //4
         for ( int x = 0; x < currentScan.length; x++)
@@ -191,16 +190,16 @@ public class Radar
      * Sets cells as falsely triggering detection based on the specified probability
      * 
      */
-    private void injectNoise(int rows, int cols)
+    private void injectNoise()
     {
         // Iterate through all cells in the currentScan 2D array to inject noise by setting false positives.
         // The noiseFraction instance variable is the probability that a given cell will be
         // detected as a false positive. Use the Math.random method to determine if each cell should be set
         // as a false positive.
-        //Random thizshallbeafalsealarm = new Random();
-        for ( int x = 0; x < rows ; x++)
+        
+        for ( int x = 0; x < currentScan.length ; x++)
         {
-            for (int y = 0; y < cols ; y++)
+            for (int y = 0; y < currentScan[x].length ; y++)
             {
                 ///int diz = thizshallbeafalsealarm.nextInt(19);
                 if (Math.random() <= noiseFraction)

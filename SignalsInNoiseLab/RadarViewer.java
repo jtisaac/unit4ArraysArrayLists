@@ -17,12 +17,19 @@ public class RadarViewer
         // create the radar, set the monster location, and perform the initial scan
         final int ROWS = 100;
         final int COLS = 100;
+        
         Radar radar = new Radar(ROWS, COLS);
+       
         radar.setNoiseFraction(0.10);
         
         // Setting the location of the monster in the radar
         Scanner nloo = new Scanner(System.in);
+        System.out.println("Please enter the row of the monster");
+        int row = nloo.nextInt();
         
+        System.out.println("Please enter the col of the monster");
+        int col = nloo.nextInt();
+        radar.setMonsterLocation(row,col);
         radar.scan();
         
         JFrame frame = new JFrame();

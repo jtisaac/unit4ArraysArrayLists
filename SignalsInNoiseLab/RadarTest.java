@@ -25,8 +25,15 @@ public class RadarTest
         x = 0;
     }
     @Test
+    public void checkMonster()
     {
-        
+       Radar jhuang = new Radar( 100, 100 );
+       jhuang.setMonsterLocation(10,10);
+       int phem = 0;
+       while (phem < 20)
+       {
+           jhuang.scan();
+       }
     }
-
+    
 }

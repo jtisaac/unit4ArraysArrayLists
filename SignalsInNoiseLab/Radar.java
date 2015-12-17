@@ -1,9 +1,9 @@
 import java.lang.Math;
 /**
- * The model for radar scan and accumulator
+ * Radar scan and accumulator
  * 
- * @author @gcschmit
- * @version 19 July 2014
+ * @author @jisaac  
+ * @version 16 December 2015
  */
 public class Radar
 {
@@ -41,11 +41,7 @@ public class Radar
         // !!! add code here !!!
         //
 
-        // randomly set the location of the monster (can be explicity set through the
-        //  setMonsterLocation method for the unit test
-        //monsterLocationRow = //(int)(Math.random() * rows);
-        //monsterLocationCol = //(int)(Math.random() * cols);
-
+        
         noiseFraction = 0.05;
         numScans= 0;
     }
@@ -122,7 +118,7 @@ public class Radar
     /**
      * Sets the probability that a given cell will generate a false detection
      * 
-     * @param   fraction    the probability that a given cell will generate a flase detection expressed
+     * @param   fraction    the probability that a given cell will generate a false detection expressed
      *                      as a fraction (must be >= 0 and < 1)
      */
     public void setNoiseFraction(double fraction)
@@ -201,7 +197,7 @@ public class Radar
         {
             for (int y = 0; y < currentScan[x].length ; y++)
             {
-                ///int diz = thizshallbeafalsealarm.nextInt(19);
+                
                 if (Math.random() <= noiseFraction)
                 {
                     currentScan[x][y] = true;

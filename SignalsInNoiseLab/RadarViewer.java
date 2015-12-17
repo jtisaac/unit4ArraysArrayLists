@@ -3,8 +3,8 @@ import java.util.Scanner;
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
  * 
- * @author @gcschmit
- * @version 19 July 2014
+ * @author @jtisaac
+ * @version 16 December 2015
  */
 public class RadarViewer
 {
@@ -17,17 +17,18 @@ public class RadarViewer
         // create the radar, set the monster location, and perform the initial scan
         final int ROWS = 100;
         final int COLS = 100;
-        
+        // Making a new radar
         Radar radar = new Radar(ROWS, COLS);
        
+        // Setting the noise fraction
         radar.setNoiseFraction(0.10);
         
-        // Setting the location of the monster in the radar
+        // Setting the row of the monster in the radar through user input:
         Scanner nloo = new Scanner(System.in);
-        System.out.println("Please enter the row of the monster");
+        System.out.println("Please enter the row of the monster (max 99):");
         int row = nloo.nextInt();
-        
-        System.out.println("Please enter the col of the monster");
+        // Setting the collumn of the monster in the radar through user input:
+        System.out.println("Please enter the col of the monster (max 99).");
         int col = nloo.nextInt();
         radar.setMonsterLocation(row,col);
         radar.scan();
@@ -54,7 +55,7 @@ public class RadarViewer
         {
             Thread.sleep(100); // sleep 100 milliseconds (1/10 second)
             
-            radar.scan(); //edit @jisaac
+            radar.scan(); 
             
             frame.repaint();
         }
